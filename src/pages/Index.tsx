@@ -1,13 +1,48 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useState } from "react";
+import { PageLayout } from "@/components/layout/PageLayout";
+import { Overview } from "@/components/tabs/Overview";
+import { SystemInformation } from "@/components/tabs/SystemInformation";
+import { FirmwareAndSoftware } from "@/components/tabs/FirmwareAndSoftware";
+import { EventLog } from "@/components/tabs/EventLog";
+import { IntegratedLog } from "@/components/tabs/IntegratedLog";
+import { PowerManagement } from "@/components/tabs/PowerManagement";
+import { RemoteConsole } from "@/components/tabs/RemoteConsole";
+import { Network } from "@/components/tabs/Network";
+import { Administration } from "@/components/tabs/Administration";
 
 const Index = () => {
+  const [activeTab, setActiveTab] = useState("overview");
+
+  const renderActiveTab = () => {
+    switch (activeTab) {
+      case "overview":
+        return <Overview />;
+      case "system-information":
+        return <SystemInformation />;
+      case "firmware":
+        return <FirmwareAndSoftware />;
+      case "ilo-event-log":
+        return <EventLog />;
+      case "integrated-log":
+        return <IntegratedLog />;
+      case "power-management":
+        return <PowerManagement />;
+      case "remote-console":
+        return <RemoteConsole />;
+      case "network":
+        return <Network />;
+      case "administration":
+        return <Administration />;
+      default:
+        return <Overview />;
+    }
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <PageLayout activeTab={activeTab} onTabChange={setActiveTab}>
+      {renderActiveTab()}
+    </PageLayout>
   );
 };
 

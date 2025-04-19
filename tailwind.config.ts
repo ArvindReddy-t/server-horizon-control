@@ -61,6 +61,20 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				status: {
+					ok: '#2E7D32',
+					warning: '#F57C00',
+					critical: '#D32F2F',
+					disabled: '#9E9E9E',
+					unknown: '#757575'
+				},
+				ilo: {
+					primary: '#0064B5',
+					secondary: '#505A64',
+					background: '#F5F7FA',
+					lightgray: '#E0E0E0',
+					darkgray: '#424242',
 				}
 			},
 			borderRadius: {
